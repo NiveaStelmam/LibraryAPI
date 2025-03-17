@@ -1,17 +1,14 @@
-package io.github.niveastelmam.libraryapi.model;
+package io.github.niveastelmam.libraryapi.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "tb_author", schema = "public")
-//@Getter
-//@Setter
 @Data
 public class Author {
 
@@ -28,6 +25,8 @@ public class Author {
 
     @Column(name = "nationality", length = 50, nullable = false)
     private String nationality;
-    
+
+    @OneToMany(mappedBy = "author" )
+    private List<Book> books;
 
 }
