@@ -1,4 +1,4 @@
-create table author(
+create table tb_author(
   id uuid not null primary key,
   name varchar(100),
   date_birth date not null,
@@ -6,7 +6,7 @@ create table author(
 );
 
 
-create table book(
+create table tb_book(
   id uuid not null primary key,
   isbn varchar(20) not null,
   title varchar(150) not null,

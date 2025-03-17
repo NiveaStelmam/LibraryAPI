@@ -21,7 +21,7 @@ public class DatabaseConfiguration {
     String driver;
 
     /**
-     * configuracao Hikary
+     * Hikary configuration
      * https://github.com/brettwooldridge/HikariCP
      * @return
      */
@@ -39,7 +39,7 @@ public class DatabaseConfiguration {
         config.setPoolName("library-db-pool");
         config.setMaxLifetime(600000); // 600 thousand ms (10 minutes)
         config.setConnectionTimeout(100000); // timeout to get a connection
-        config.setConnectionTestQuery("select 1"); // test query
+        config.setConnectionTestQuery("select 1"); // query de teste
 
         return new HikariDataSource(config);
     }
