@@ -13,9 +13,9 @@ create table tb_book(
   publication_date date not null,
   gender varchar(30) not null,
   price numeric(18,2),
-  id_author uuid not null references author(id),
+  id_author uuid not null references tb_author(id),
   constraint chk_gender check (gender in ('FICTION', 'FANTASY', 'MYSTERY', 'ROMANCE', 'BIOGRAPHY', 'SCIENCE'))
 );
 
 
-select * from author
+select * from tb_author
