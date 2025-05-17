@@ -1,19 +1,17 @@
-package io.github.niveastelmam.libraryapi.AuthorRepository;
+package io.github.niveastelmam.libraryapi.repositories;
 
 import io.github.niveastelmam.libraryapi.models.Author;
-import io.github.niveastelmam.libraryapi.repositories.AuthorRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @SpringBootTest
-public class AuthorRepositoryTest {
+class AuthorRepositoryTest {
 
     @Autowired
     AuthorRepository authorRepository;

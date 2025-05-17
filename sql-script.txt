@@ -19,3 +19,9 @@ create table tb_book(
 
 
 select * from tb_author
+
+
+// join between book and author
+select b.title as name_book, a.name as name_author
+from tb_book b
+join tb_author a on a.id = b.id_author
