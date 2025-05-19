@@ -22,7 +22,7 @@ class BookRepositoryTest {
     AuthorRepository authorRepository;
 
 
-    // Searches for an existing Author in the database by ID and associates it with the Book
+    // Default: Find the author, associate it with the book, then save the book
     @Test
     void saveTest(){
          Book book = new Book();
@@ -39,6 +39,7 @@ class BookRepositoryTest {
          bookRepository.save(book);
     }
 
+    // Save the Book and the Author in the same method. First save the author and then the book.
     @Test
     void saveAuthorAndBookTest(){
         Book book = new Book();
@@ -81,4 +82,30 @@ class BookRepositoryTest {
         bookRepository.save(book);
     }
 
+    @Test
+    void updateTheBookAuthor(){
+        UUID id = UUID.fromString("b8351d74-5440-459b-afe8-a4552279fed0");
+        var bookToUpdate = bookRepository.findById(id).orElse(null);
+
+        UUID idAuthor = UUID.fromString("3d8c2b36-e948-4dfd-b1b1-2f097f9fbc6b");
+        Author stephen = authorRepository.findById(idAuthor).orElse(null);
+
+        bookToUpdate.setAuthor(stephen);
+        bookRepository.save(bookToUpdate);
+
+    }
+
+    @Test
+    void delete(){
+        UUID id = UUID.fromString("b8351d74-5440-459b-afe8-a4552279fed0");
+        bookRepository.deleteById(id);
+    }
+
+    @Test
+    void deleteCascade(){
+        UUID id = UUID.fromString("54daccae-c5b9-4948-8b3c-dfac83a98fc1");
+        bookRepository.deleteById(id);
+
+    }
+    
 }
