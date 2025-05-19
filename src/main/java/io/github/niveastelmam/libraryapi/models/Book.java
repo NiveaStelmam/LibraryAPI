@@ -33,7 +33,11 @@ public class Book {
     @Column(name = "price", precision = 18, scale = 2)
     private BigDecimal price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne (
+//              cascade = CascadeType.ALL
+//              fetch = FetchType.EAGER -- (default): brings the book and author data
+//              fetch = FetchType.LAZY -- only brings the book's data and not the author's
+    )
     @JoinColumn(name = "id_author")
     private Author author;
 

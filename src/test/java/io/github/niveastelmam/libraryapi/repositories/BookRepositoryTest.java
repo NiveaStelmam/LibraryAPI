@@ -4,9 +4,11 @@ package io.github.niveastelmam.libraryapi.repositories;
 import io.github.niveastelmam.libraryapi.models.Author;
 import io.github.niveastelmam.libraryapi.models.Book;
 import io.github.niveastelmam.libraryapi.models.BookGenre;
+import jakarta.persistence.Transient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -107,5 +109,17 @@ class BookRepositoryTest {
         bookRepository.deleteById(id);
 
     }
-    
+    @Test
+    //@Transactional
+    void searchForBook(){
+        UUID id = UUID.fromString("cf968e06-68ae-4d34-9249-f9c731726621");
+        Book book = bookRepository.findById(id).orElse(null);
+        System.out.println("Book: ");
+        System.out.println(book.getTitle());
+
+        System.out.println("Author: ");
+        System.out.println(book.getAuthor().getName());
+
+    }
+
 }
